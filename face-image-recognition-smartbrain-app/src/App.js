@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+import ParticlesBg from 'particles-bg';
 import logo from './logo.svg';
 import './App.css';
 
