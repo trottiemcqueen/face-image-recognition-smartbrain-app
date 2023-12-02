@@ -22,11 +22,11 @@ class App extends Component {
   }
 
   onInputChange = (event) => {
-    console.log(event.target.value);
+    this.setState ({input: event.target.value});
   }
 
   onButtonSubmit = () => {
-    this.setState({imageUrl: input});
+    this.setState({imageUrl: this.state.input});
     app.models.predict(clarifai.COLOR_MODEL, "https://samples.clarifai.com/face-det.jpg")
     .then(function(response) {
       console.log(response);
