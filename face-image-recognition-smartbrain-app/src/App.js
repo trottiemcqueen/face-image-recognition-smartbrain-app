@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import clarifai from 'clarifai';
+//import clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Logo from './components/Logo/Logo';
@@ -8,10 +8,6 @@ import Rank from './components/Rank/Rank';
 import ParticlesBg from 'particles-bg';
 import './App.css';
 
-
-const app = new clarifai.App({
-  PAT: ''
-});
 
 class App extends Component {
   constructor() {
@@ -22,19 +18,11 @@ class App extends Component {
   }
 
   onInputChange = (event) => {
-    this.setState ({input: event.target.value});
+    console.log(event.target.value);
   }
 
-  onButtonSubmit = () => {
-    this.setState({imageUrl: this.state.input});
-    app.models.predict(clarifai.COLOR_MODEL, "https://samples.clarifai.com/face-det.jpg")
-    .then(function(response) {
+  onButtonSubmit = (response) => {
       console.log(response);
-    },
-    function(err) {
-        //this was an error
-      }
-    );
   }
 
 
